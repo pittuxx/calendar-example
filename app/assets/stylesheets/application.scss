@@ -1,0 +1,117 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ * require jquery-ui/datepicker
+ * require jquery.timepicker.css
+ * require fullcalendar_engine/application
+ * require fullcalendar
+ */
+body {
+	background-color: lightblue;
+}
+.wrap {
+	background-color: white;
+	margin:3%;
+	border-radius: 10px;
+	padding:20px;
+}
+#articles .calendar {
+  border-collapse: collapse;
+  width: 100%;
+
+  td, th {
+    font-family: "Lucida Grande", arial, helvetica, sans-serif;
+    font-size: 10px;
+    padding: 6px;
+    border: 1px solid #999;
+  }
+
+  th {
+    background: #DDD;
+    color: #666;
+    text-align: center;
+    width: 14.2857142857143%;
+  }
+
+  td {
+    background: #FFF;
+    color: #777;
+    height: 80px;
+    vertical-align: top;
+    font-size: 16px;
+  }
+
+  .notmonth, .notmonth a { color: #CCC; }
+  .today { background-color: #D7F2FF; }
+}
+#articles .week_calendar{
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #999 ;
+
+
+  td, th {
+    font-family: "Lucida Grande", arial, helvetica, sans-serif;
+    font-size: 10px;
+    padding: 6px;
+    border: 1px solid #999;
+
+    li {
+      list-style-type:none;
+    }
+  }
+
+  th {
+    background: #DDD;
+    color: #666;
+    text-align: center;
+    width:12.5% /* 14.2857142857143% */;
+  }
+
+  td {
+    background: #FFF;
+    color: #777;
+    height: 40px;
+    vertical-align: top;
+  }
+
+  .today { background-color: #D7F2FF; }
+  .meeting { 
+    background-color: yellow; 
+    border-top: 0;
+    border-bottom: 0;
+  }
+}
+
+#articles #month, #articles #week {
+  margin: 0;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 22px;
+  a {
+    text-decoration: none;
+    padding: 0 10px;
+    color: #999;
+  }
+}
+
+#articles ul {
+  font-size: 11px;
+  padding-left: 20px;
+  color: black;
+}
+.scaf_table td {
+  padding:2px 6px;
+}

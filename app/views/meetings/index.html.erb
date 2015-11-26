@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Meetings</h1>
+<br>
+
+<%= link_to 'New Meeting', new_meeting_path %>
+
+<br>
+<br>
+<br>
+  <%= link_to meetings_monthly_path, remote: true do %>
+    <button>Monthly!</button>
+  <% end %>
+  <%= link_to meetings_weekly_path, remote: true do %>
+    <button>Weekly!</button>
+  <% end %>
+<br>
+<br>
+
+
+<div id="ajax-calendar">
+</div>

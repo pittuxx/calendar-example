@@ -1,0 +1,19 @@
+<div id="articles" class="calendar">
+  <h2 id="month">
+    <%= link_to '<', remote: true, date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to '>', remote: true, date: @date.next_month %>
+  </h2>
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% if @meetings_by_day[date] %>
+    <ul>
+      <% @meetings_by_day[date].sort {|a,b| a.starts <=> b.starts }.each do |meeting| %>
+      <li>
+        <%= link_to "#{meeting.starts.strftime("%I:%M%p")} - #{meeting.title}", meeting_path(meeting), title: "#{meeting.body}" %>
+      </li>
+      <% end %>
+    </ul>
+    <% end %> 
+  <%end%>
+</div>

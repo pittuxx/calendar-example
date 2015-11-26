@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @meeting.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @meeting.body %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @meeting.meeting_date.strftime("%d-%m-%Y") %>
+</p>
+
+<p>
+  <strong>Starts:</strong>
+  <%= @meeting.starts.strftime("%I:%M%p") %>
+</p>
+
+<p>
+  <strong>Ends:</strong>
+  <%= @meeting.ends.strftime("%I:%M%p") %>
+</p>
+
+<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
+<%= link_to 'Back', meetings_path %> |
+<%= link_to 'Destroy', @meeting, method: :delete, data: { confirm: 'Are you sure?' } %>

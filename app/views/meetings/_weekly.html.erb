@@ -1,0 +1,44 @@
+<div id="articles">
+	<% begin_week = @date.at_beginning_of_week(:monday) %>
+	<% end_week = @date.at_end_of_week(:monday) %>
+	<% timetable = (9..21) %>
+	<h2 id="week">
+		<%= @date.beginning_of_week(:monday).strftime("%d-%m-%y") %>
+		<%= link_to '<', remote: true, date: @date.prev_week %>
+		<%= "Semana " + @date.strftime("%W") %>
+		<%= link_to '>', remote: true, date: @date.next_week %>
+		<%= @date.end_of_week(:monday).strftime("%d-%m-%y") %>
+	</h2>
+	<table class="week_calendar">
+		<tr>
+			<th>hora</th>
+			<% (begin_week..end_week).each do |date| %>
+			<th class="<%= 'today' if date == Date.today %>"><%= date.strftime("%A %d-%m") %></th>
+			<% end %>
+		</tr>
+		<% timetable.each do |number| %>
+			<tr>
+				<td>
+					<% time = format_time(@time.change(:hour => number)) %>
+					<%= time %>
+				</td>
+				<% (begin_week..end_week).each do |date| %>
+					<% if @meetings_by_day[date] %>
+						<td <%= meeting_or_today_class(date,time) %>>
+							<ul>
+								<% @meetings_by_day[date].each do |meeting| %>
+									<% if same_hour(meeting,time) %>
+										<li><%= link_to show_meeting(meeting), meeting_path(meeting), 
+										title: "#{meeting.body}" %></li>
+									<% end %>
+								<% end %>
+							</ul>
+					<% else %>
+						<td <%= meeting_or_today_class(date,time) %>>
+					<% end %>
+						</td>
+				<% end %>
+			</tr>
+		<% end %>
+	</table>
+</div>
